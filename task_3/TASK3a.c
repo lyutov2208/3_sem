@@ -14,7 +14,7 @@ int main()
 {
     char *  array; 
     int     i, shmid;
-    char    pathname[] = "TASK3_a.c"; 
+    char    pathname[] = "TASK3a.c"; 
     key_t   key;
     char mas[100]; 
 
