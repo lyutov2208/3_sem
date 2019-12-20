@@ -36,11 +36,15 @@ void *calculate(void * annoy)
         if(func(limit->a+dx*i)>M)
             M = func(limit->a+dx*i);
     } 
-
+    struct drand48_data data;
+    srand48_r (rand(), &data);
     for(i=0; i < limit->count; i++) 
     {
-        x = limit->a + (double)(limit->b - limit->a)*rand()/RAND_MAX;
-        y = (double)M*rand()/RAND_MAX;
+        double r1, r2;
+        drand48_r(data, &r1);
+        drand48_r(data, &r2);
+        x = limit->a + (double)(limit->b - limit->a)*r1;
+        y = (double)M*r2;
 
         if(y<func(x))
             hit++;
